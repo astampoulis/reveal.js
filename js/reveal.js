@@ -4674,6 +4674,10 @@
 	 */
 	function onDocumentKeyPress( event ) {
 
+		if( typeof config.keyboardCondition === 'function' && config.keyboardCondition(event) === false ) {
+			return true;
+		}
+
 		// Check if the pressed key is question mark
 		if( event.shiftKey && event.charCode === 63 ) {
 			toggleHelp();
